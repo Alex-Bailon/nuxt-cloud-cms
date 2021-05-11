@@ -79,11 +79,21 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import Gitana from 'gitana'
 
 export default {
   components: {
     Logo,
     VuetifyLogo
-  }
+  },
+  async asyncData(context) {
+    // console.log(Gitana)
+    const { branch } = await context.$getCloudCMS()
+    await branch.queryNodes({ _type: "store:author" }, {"limit": 3}).then( function() {
+      console.log(this.asArray())
+    })
+    return {
+    }
+  },
 }
 </script>

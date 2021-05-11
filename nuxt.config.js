@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+window = undefined
+const gitanaConfig = require('./gitana.json')
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -39,6 +41,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    ['cloudcms-nuxt', gitanaConfig]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
